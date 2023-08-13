@@ -191,7 +191,7 @@ VSCode will build the dockerfile inside of `.devcontainer` for you.  If you open
 2. If you are using a `ros2.repos` file, import the contents `Terminal->Run Task..->import from workspace file`
 3. Install dependencies `Terminal->Run Task..->install dependencies`
 4. (optional) Adjust scripts to your liking.  These scripts are used both within tasks and CI.
-   - `setup.sh` The setup commands for your code.  Default to import workspace and install dependencies.
+   - `dep_install.sh` The setup commands for your code.  Default to import workspace and install dependencies.
    - `build.sh` The build commands for your code.  Default to `--merge-install` and `--symlink-install`
    - `test.sh` The test commands for your code.
 5. Develop!

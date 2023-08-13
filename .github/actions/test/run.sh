@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-./setup.sh
+./dep_install.sh
 ./build.sh
 ./test.sh

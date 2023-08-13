@@ -223,10 +223,10 @@
             "problemMatcher": []
         },
         {
-            "label": "setup",
-            "detail": "Set up the workspace",
+            "label": "dependency install",
+            "detail": "Install dependencies to set up the workspace.",
             "type": "shell",
-            "command": "./setup.sh",
+            "command": "./dep_install.sh",
             "problemMatcher": []
         },
         {
