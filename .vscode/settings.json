@@ -1,13 +1,36 @@
 {
-    "editor.tabSize": 8,
-    "editor.rulers": [
-        100
-    ],
+    // ================================ // General settings
+    //
+    "files.autoSave": "afterDelay",
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
     "files.associations": {
         "*.repos": "yaml",
         "*.world": "xml",
         "*.xacro": "xml"
     },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/build": true,
+        "**/install": true,
+        "**/log": true
+    },
+    //
+    // ================================ // Editor settings
+    //
+    "editor.formatOnType": false,
+    "editor.rulers": [
+        128
+    ],
+    "editor.tabSize": 4,
+    "editor.fontFamily": "Fira Code, 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    //
+    // ================================ // Python settings
+    //
     "python.analysis.extraPaths": [
         "/opt/ros/humble/lib/python3.10/site-packages/"
     ],
@@ -17,24 +40,25 @@
     ],
     // Environment file lets vscode find python files within workspace
     "python.envFile": "${workspaceFolder}/.env",
-    // Use the system installed version of autopep8
-    "python.formatting.autopep8Path": "/usr/bin/autopep8",
-    "python.formatting.autopep8Args": [
-        "--max-line-length=100"
+    // Formatter
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "autopep8.args": [
+        "--max-line-length=128"
     ],
+    // Linter
+    "flake8.args": [
+        "--max-line-length=128"
+    ],
+    //
+    // ================================ // C++ settings
+    //
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
     "C_Cpp.formatting": "disabled",
     "uncrustify.configPath.linux": "/opt/ros/humble/lib/python3.10/site-packages/ament_uncrustify/configuration/ament_code_style.cfg",
     "[cpp]": {
         "editor.defaultFormatter": "zachflower.uncrustify"
-    },
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/*.code-search": true,
-        "**/build": true,
-        "**/install": true,
-        "**/log": true
     },
     "cSpell.words": [
         "RTPS",
@@ -59,7 +83,8 @@
         "uncrustify",
         "Wextra",
         "Wpedantic",
-        "xmllint"
+        "xmllint",
+        "Kakao"
     ],
     "cSpell.allowCompoundWords": true,
     "cSpell.ignorePaths": [
@@ -70,5 +95,29 @@
         ".vscode",
         ".vscode-insiders",
         ".devcontainer/devcontainer.json"
-    ]
+    ],
+    //
+    // ================================ // Git settings
+    //
+    "git.autofetch": true,
+    //
+    // ================================ // Extension settings
+    //
+    // Markdown All in One
+    "markdown.extension.toc.levels": "2..3",
+    "markdown.extension.toc.orderedList": true,
+    // Markdownlint
+    "markdownlint.config": {
+      "MD007": {
+        "indent": 2
+      },
+      "MD013": false,
+      "MD024": false,
+      "MD033": false
+    },
+    //
+    // ================================ // Generated settings by extensions
+    //
+    // You will find automatically added settings in this section.
+    //
 }

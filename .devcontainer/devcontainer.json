@@ -1,48 +1,79 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
-	"dockerFile": "Dockerfile",
-	"build": {
-		"args": {
-			"WORKSPACE": "${containerWorkspaceFolder}"
-		}
-	},
-	"remoteUser": "ros",
-	"runArgs": [
-		"--network=host",
-		"--cap-add=SYS_PTRACE",
-		"--security-opt=seccomp:unconfined",
-		"--security-opt=apparmor:unconfined",
-		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
-		"--volume=/mnt/wslg:/mnt/wslg",
-		"--ipc=host"
-		// uncomment to use intel iGPU
-		// "--device=/dev/dri"
-	],
-	"containerEnv": {
-		"DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows
-		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
-		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
-		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
-		"LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
-	},
-	// Set *default* container specific settings.json values on container create.
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"althack.ament-task-provider",
-				"betwo.b2-catkin-tools",
-				"DotJoshJohnson.xml",
-				"ms-azuretools.vscode-docker",
-				"ms-iot.vscode-ros",
-				"ms-python.python",
-				"ms-vscode.cpptools",
-				"redhat.vscode-yaml",
-				"smilerobotics.urdf",
-				"streetsidesoftware.code-spell-checker",
-				"twxs.cmake",
-				"yzhang.markdown-all-in-one",
-				"zachflower.uncrustify"
-			]
-		}
-	}
+  "dockerFile": "humble_full.Dockerfile",
+  "build": {
+    "args": {
+      "USERNAME": "ros",
+      "WORKSPACE": "${containerWorkspaceFolder}"
+    }
+  },
+  "remoteUser": "ros",
+  "runArgs": [
+    "--network=host",
+    "--privileged",
+    "--gpus=all",
+    "--cap-add=SYS_PTRACE",
+    "--security-opt=seccomp:unconfined",
+    "--security-opt=apparmor:unconfined",
+    "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+    "--volume=/mnt/wslg:/mnt/wslg",
+    "--volume=/etc/timezone:/etc/timezone:ro",
+    "--volume=/etc/localtime:/etc/localtime:ro",
+    "--ipc=host",
+    // uncomment to use intel iGPU
+    // "--device=/dev/dri",
+    // uncomment to use usb devices
+    "--device=/dev/bus/usb:/dev/bus/usb"
+  ],
+  "containerEnv": {
+    "USERNAME": "ros",
+    "PYTHONBUFFERED": "1", // Disable stdout buffering
+    "DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows
+    "WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+    "XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
+    "PULSE_SERVER": "${localEnv:PULSE_SERVER}",
+    "LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
+  },
+  // Set *default* container specific settings.json values on container create.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        // Core
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "redhat.vscode-yaml",
+        "DotJoshJohnson.xml",
+        "ms-azuretools.vscode-docker",
+        // Build
+        "althack.ament-task-provider",
+        "betwo.b2-catkin-tools",
+        "twxs.cmake",
+        // Code Linters
+        "streetsidesoftware.code-spell-checker",
+        "ms-python.flake8",
+        // Code Formatters
+        "zachflower.uncrustify",
+        "ms-python.autopep8",
+        // Markdown
+        "yzhang.markdown-all-in-one",
+        "TakumiI.markdowntable",
+        "bierner.markdown-preview-github-styles",
+        "DavidAnson.vscode-markdownlint",
+        // ROS
+        "ms-iot.vscode-ros",
+        "smilerobotics.urdf",
+        // Git
+        "piotrpalarz.vscode-gitignore-generator",
+        "mhutchie.git-graph",
+        // [Optional] These extensions require GitHub account authentication. Uncomment them to enable.
+        // "github.vscode-github-actions",
+        // "GitHub.copilot",
+        // Utilities
+        "Gruntfuggly.todo-tree"
+      ]
+    }
+  }
 }
