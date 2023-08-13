@@ -33,7 +33,7 @@ Host 시스템에 Docker와 VSCode Remote Containers 플러그인이 설치되�
   ros@...:~$
   ```
 
-- 자세한 사용법은 [#how-to-use-this-template](#how-to-use-this-template) 섹션을 참고해주세요.
+- 자세한 사용법은 [how-to-use-this-template](#-how-to-use-this-template) 섹션을 참고해주세요.
 
 ## 📌 정보
 
