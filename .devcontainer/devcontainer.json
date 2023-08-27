@@ -11,18 +11,33 @@
   "runArgs": [
     "--network=host",
     "--privileged",
-    "--gpus=all",
+    "--ipc=host",
     "--cap-add=SYS_PTRACE",
     "--security-opt=seccomp:unconfined",
     "--security-opt=apparmor:unconfined",
+    // ==================== Optional ====================
+
+    // Uncomment to use nvidia GPU
+    "--gpus=all",
+
+    // Uncomment to use X11
     "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
-    "--volume=/mnt/wslg:/mnt/wslg",
+
+    // Uncomment to use Wayland
+    // See [https://github.com/microsoft/wslg/blob/main/samples/container/Containers.md]
+    // "--volume=/mnt/wslg:/mnt/wslg",
+
+    // Uncomment to use DooD (Docker outside of Docker)
+    "--volume=/var/run/docker.sock:/var/run/docker.sock",
+
+    // Uncomment to sync time with host
     "--volume=/etc/timezone:/etc/timezone:ro",
     "--volume=/etc/localtime:/etc/localtime:ro",
-    "--ipc=host",
-    // uncomment to use intel iGPU
+
+    // Uncomment to use intel iGPU
     // "--device=/dev/dri",
-    // uncomment to use usb devices
+
+    // Uncomment to use usb devices
     "--device=/dev/bus/usb:/dev/bus/usb"
   ],
   "containerEnv": {
@@ -69,10 +84,11 @@
         "piotrpalarz.vscode-gitignore-generator",
         "mhutchie.git-graph",
         // [Optional] These extensions require GitHub account authentication. Uncomment them to enable.
-        // "github.vscode-github-actions",
-        // "GitHub.copilot",
-        // Utilities
-        "Gruntfuggly.todo-tree"
+        "github.vscode-github-actions",
+        "GitHub.copilot",
+        // [Optional] Other extensions
+        "Gruntfuggly.todo-tree",
+        "PKief.material-icon-theme"
       ]
     }
   }

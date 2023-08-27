@@ -1,3 +1,7 @@
+#######################################
+# Please refer to the following link for more information.
+# https://github.com/athackst/dockerfiles/blob/main/ros2/humble.Dockerfile
+#######################################
 FROM althack/ros2:humble-full
 
 # Change apt source to Kakao mirror
@@ -17,8 +21,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
    && apt-get install -y -qq --no-install-recommends \
-      # net-tools is required for ifconfig
-      net-tools \
       # Expose the nvidia driver to allow opengl
       # Dependencies for glvnd and X11.
       libglvnd0 \
@@ -47,6 +49,8 @@ RUN apt-get update \
       tmuxinator \
       xorg-dev \
       zsh \
+      net-tools \
+      ntpdate \
    # Clean up
    && apt-get autoremove -y \
    && apt-get clean -y \
@@ -92,6 +96,24 @@ USER root
 #    && apt-get autoremove -y \
 #    && apt-get clean -y \
 #    && rm -rf /var/lib/apt/lists/*
+
+# Install DooD (Docker outside of Docker)
+# Don't forget to add the following line to your docker-compose.yml
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+RUN install -m 0755 -d /etc/apt/keyrings \
+   && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg \
+   && chmod a+r /etc/apt/keyrings/docker.gpg \
+   && echo \
+      "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+      tee /etc/apt/sources.list.d/docker.list > /dev/null \
+   && apt-get update \
+   && apt-get install -y docker.io \
+   # Clean up
+   && apt-get autoremove -y \
+   && apt-get clean -y \
+   && rm -rf /var/lib/apt/lists/*
 
 # ******************************************************
 ENV DEBIAN_FRONTEND=dialog

@@ -1,5 +1,5 @@
 {
-    // ================================ // General settings
+    // ================================ General settings
     //
     "files.autoSave": "afterDelay",
     "files.eol": "\n",
@@ -18,18 +18,22 @@
         "**/install": true,
         "**/log": true
     },
+    "workbench.iconTheme": "material-icon-theme",
     //
-    // ================================ // Editor settings
+    // ================================ Editor settings
     //
     "editor.formatOnType": false,
     "editor.rulers": [
         128
     ],
     "editor.tabSize": 4,
+    "[markdown]": {
+        "editor.tabSize": 3
+    },
     "editor.fontFamily": "Fira Code, 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": true,
     //
-    // ================================ // Python settings
+    // ================================ Python settings
     //
     "python.analysis.extraPaths": [
         "/opt/ros/humble/lib/python3.10/site-packages/"
@@ -52,7 +56,7 @@
         "--max-line-length=128"
     ],
     //
-    // ================================ // C++ settings
+    // ================================ C++ settings
     //
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
     "C_Cpp.formatting": "disabled",
@@ -97,27 +101,23 @@
         ".devcontainer/devcontainer.json"
     ],
     //
-    // ================================ // Git settings
+    // ================================ Git settings
     //
     "git.autofetch": true,
     //
-    // ================================ // Extension settings
+    // ================================ Extension settings
     //
     // Markdown All in One
     "markdown.extension.toc.levels": "2..3",
     "markdown.extension.toc.orderedList": true,
     // Markdownlint
     "markdownlint.config": {
-      "MD007": {
-        "indent": 2
-      },
-      "MD013": false,
-      "MD024": false,
-      "MD033": false
+        "MD007": {
+            "indent": 2
+        },
+        "MD013": false,
+        "MD024": false,
+        "MD033": false
     },
-    //
-    // ================================ // Generated settings by extensions
-    //
-    // You will find automatically added settings in this section.
-    //
+    // Automatically generated settings are displayed directly above.
 }
