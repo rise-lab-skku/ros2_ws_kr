@@ -1,0 +1,941 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://rise-lab-skku.github.io/ros2_ws_kr/">
+      
+      
+      
+        <link rel="next" href="LICENSE/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+    
+    
+      
+        <title>rise-lab-skku/ros2_ws_kr</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0e669242.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vscode-ros2-workspace-template-for-kr" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="rise-lab-skku/ros2_ws_kr" class="md-header__button md-logo" aria-label="rise-lab-skku/ros2_ws_kr" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            rise-lab-skku/ros2_ws_kr
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VSCode ROS2 Workspace Template for KR
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rise-lab-skku/ros2_ws_kr" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="rise-lab-skku/ros2_ws_kr" class="md-nav__button md-logo" aria-label="rise-lab-skku/ros2_ws_kr" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    rise-lab-skku/ros2_ws_kr
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rise-lab-skku/ros2_ws_kr" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    VSCode ROS2 Workspace Template for KR
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    VSCode ROS2 Workspace Template for KR
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    📦 사전 준비
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ✏️ 사용법
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    📌 정보
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 정보">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1️⃣ 유용한 기능들은 무엇이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dev-container" class="md-nav__link">
+    2️⃣ Dev Container는 일반적인 컨테이너에 비해 어떤 장점이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3️⃣ 배포용 도커 이미지는 어떻게 만들 수 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vscode" class="md-nav__link">
+    4️⃣ 원격으로 VSCode를 사용할 때 유용한 팁이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-settingsjson" class="md-nav__link">
+    5️⃣ 설정된 settings.json 중에서 알아두면 좋은 것들은 무엇이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-devcontainerjson" class="md-nav__link">
+    6️⃣ 설정된 devcontainer.json 중에서 알아두면 좋은 것들은 무엇이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-docker-compose-devcontainer" class="md-nav__link">
+    7️⃣ Docker compose를 devcontainer로 사용하고 싶다면 어떻게 해야 하나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8️⃣ 쉘 변경은 어떻게 하나요?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    📹 실제 센서 연결
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ✨ 기능 추가
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    🔑 문제 해결
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LICENSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LICENSE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure kinect
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Azure kinect
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/azure_kinect/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Kinect 컨테이너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Realsense
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Realsense
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/realsense/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intel RealSense 컨테이너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    📦 사전 준비
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ✏️ 사용법
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    📌 정보
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 정보">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1️⃣ 유용한 기능들은 무엇이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dev-container" class="md-nav__link">
+    2️⃣ Dev Container는 일반적인 컨테이너에 비해 어떤 장점이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3️⃣ 배포용 도커 이미지는 어떻게 만들 수 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vscode" class="md-nav__link">
+    4️⃣ 원격으로 VSCode를 사용할 때 유용한 팁이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-settingsjson" class="md-nav__link">
+    5️⃣ 설정된 settings.json 중에서 알아두면 좋은 것들은 무엇이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-devcontainerjson" class="md-nav__link">
+    6️⃣ 설정된 devcontainer.json 중에서 알아두면 좋은 것들은 무엇이 있나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-docker-compose-devcontainer" class="md-nav__link">
+    7️⃣ Docker compose를 devcontainer로 사용하고 싶다면 어떻게 해야 하나요?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8️⃣ 쉘 변경은 어떻게 하나요?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    📹 실제 센서 연결
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ✨ 기능 추가
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    🔑 문제 해결
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="vscode-ros2-workspace-template-for-kr">VSCode ROS2 Workspace Template for KR</h1>
+<p>This template provides a fully prepared ROS2 workspace using a VSCode Dev Container, and it employs the Kakao mirror as an Ubuntu APT mirror.
+Furthermore, it builds upon two other repositories.
+If you find this template useful, please consider showing your support by giving a star to the repositories mentioned below.</p>
+<ul>
+<li>👑 <a href="https://github.com/athackst/vscode_ros2_workspace">athackst/vscode_ros2_workspace</a></li>
+<li>👑 <a href="https://github.com/sskorol/ros2-humble-docker-dev-template">sskorol/ros2-humble-docker-dev-template</a></li>
+</ul>
+<hr />
+<p><strong>목차</strong></p>
+<ol>
+<li><a href="#-사전-준비">📦 사전 준비</a></li>
+<li><a href="#️-사용법">✏️ 사용법</a></li>
+<li><a href="#-정보">📌 정보</a></li>
+<li><a href="#1️⃣-유용한-기능들은-무엇이-있나요">1️⃣ 유용한 기능들은 무엇이 있나요?</a></li>
+<li><a href="#2️⃣-dev-container는-일반적인-컨테이너에-비해-어떤-장점이-있나요">2️⃣ Dev Container는 일반적인 컨테이너에 비해 어떤 장점이 있나요?</a></li>
+<li><a href="#3️⃣-배포용-도커-이미지는-어떻게-만들-수-있나요">3️⃣ 배포용 도커 이미지는 어떻게 만들 수 있나요?</a></li>
+<li><a href="#4️⃣-원격으로-vscode를-사용할-때-유용한-팁이-있나요">4️⃣ 원격으로 VSCode를 사용할 때 유용한 팁이 있나요?</a></li>
+<li><a href="#5️⃣-설정된-settingsjson-중에서-알아두면-좋은-것들은-무엇이-있나요">5️⃣ 설정된 settings.json 중에서 알아두면 좋은 것들은 무엇이 있나요?</a></li>
+<li><a href="#6️⃣-설정된-devcontainerjson-중에서-알아두면-좋은-것들은-무엇이-있나요">6️⃣ 설정된 devcontainer.json 중에서 알아두면 좋은 것들은 무엇이 있나요?</a></li>
+<li><a href="#7️⃣-docker-compose를-devcontainer로-사용하고-싶다면-어떻게-해야-하나요">7️⃣ Docker compose를 devcontainer로 사용하고 싶다면 어떻게 해야 하나요?</a></li>
+<li><a href="#8️⃣-쉘-변경은-어떻게-하나요">8️⃣ 쉘 변경은 어떻게 하나요?</a></li>
+<li><a href="#-실제-센서-연결">📹 실제 센서 연결</a></li>
+<li><a href="#-기능-추가">✨ 기능 추가</a></li>
+<li><a href="#-문제-해결">🔑 문제 해결</a></li>
+</ol>
+<hr />
+<h2 id="_1">📦 사전 준비</h2>
+<ol>
+<li>Host 시스템에 <a href="https://docs.docker.com/engine/install/">Docker Engine</a>과 <a href="https://code.visualstudio.com/">VSCode</a> 그리고 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers 플러그인</a>이 설치되어 있어야 합니다.</li>
+<li>GPU를 사용하려면, Host 시스템에 <a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#setting-up-nvidia-container-toolkit">NVIDIA Container Toolkit</a>을 설치해야 합니다.</li>
+</ol>
+<details>
+   <summary>설치 방법</summary>
+
+   ```bash
+   # Add the package repositories
+   distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+   && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+   && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+   sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+   sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+   # Install the toolkit
+   sudo apt-get update
+   sudo apt-get install -y nvidia-container-toolkit
+   sudo nvidia-ctk runtime configure --runtime=docker
+   sudo systemctl restart docker
+   ```
+
+   </details>
+
+<ol>
+<li>현재 Dev Container에서 Host 시스템의 시간을 사용하도록 설정되어 있습니다. 따라서 컨테이너 내부의 시간을 NTP로 동기화하고 싶다면, Host 시스템에 <code>chrony</code> 설치를 추천합니다. (ROS Clock에 대해 읽어보기: <a href="https://design.ros2.org/articles/clock_and_time.html">ROS2</a>, <a href="http://wiki.ros.org/Clock">ROS1</a>)</li>
+</ol>
+<p><code>bash
+   sudo apt install chrony</code></p>
+<ol>
+<li>WSL2를 사용하는 경우, <a href="https://github.com/athackst/vscode_ros2_workspace#wsl2">원본 저장소의 WSL2</a> 섹션을 참고해주세요.</li>
+</ol>
+<h2 id="_2">✏️ 사용법</h2>
+<ol>
+<li>
+<p>원하는 workspace 이름으로 저장소를 내려받습니다. 다음 2가지 방법 중 하나를 선택하세요.</p>
+</li>
+<li>
+<p><strong>(방법 1)</strong> 본 저장소를 바로 내려받고 git 연결을 끊는 방법. <code>$YOUR_WORKSPACE_NAME</code>는 원하는 workspace 이름으로 바꿔주세요.</p>
+<p><code>bash
+  git clone https://github.com/rise-lab-skku/ros2_ws_kr.git $YOUR_WORKSPACE_NAME
+  cd $YOUR_WORKSPACE_NAME
+  git remote remove origin</code></p>
+</li>
+<li>
+<p><strong>(방법 2)</strong> 본인의 private 저장소를 만들어서 workspace를 관리하는 방법. 이렇게 하면 <code>./src/</code> 폴더에 담을 ROS 패키지들을 <a href="https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88">submodule</a>로 관리할 수 있습니다.</p>
+<p><details>
+  <summary>펼치기</summary></p>
+<p>템플릿을 사용하여 새 저장소 만들기를 선택합니다.</p>
+<p><img alt="image" src="https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/aa68da73-e0b6-4115-a24b-c1052458a7b8" /></p>
+<p>저장소 이름을 원하는 workspace 이름으로 설정하고, private으로 생성합니다.</p>
+<p><img alt="image" src="https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/21f8ea0c-67ae-478e-861a-e7ae2d3a0fd2" /></p>
+<p>생성된 저장소를 내려받습니다. <code>git clone ${복사한 저장소 주소}</code></p>
+<p><img alt="image" src="https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/e5bf84b3-9c26-490a-9937-90d6f46f96f2" /></p>
+</details>
+</li>
+<li>
+<p>내려받은 workspace를 VSCode로 엽니다.</p>
+</li>
+<li><strong>오른쪽 하단</strong>에 컨테이너를 사용할 것인지 묻는 팝업이 뜨면, <code>Reopen in Container</code>를 선택합니다.</li>
+<li>만약 팝업을 보지 못했다면, <code>Ctrl+Shift+P</code>로 패널을 열어서 <code>Dev Containers: Reopen in Container</code>를 선택합니다.</li>
+<li>위의 과정을 거치면, 컨테이너가 빌드되고 VSCode가 재시작됩니다.</li>
+<li>
+<p>최초 실행 시, Docker 이미지를 빌드하는 과정이 있어서 시간이 몇 분 정도 걸릴 수 있지만, 두 번째 실행부터는 빌드된 이미지가 있으므로 바로 실행됩니다.</p>
+</li>
+<li>
+<p>올바로 실행되었다면, <code>Ctrl+Shift+`(역따옴표)</code>로 터미널을 열여서 유저이름이 <code>ros</code>인 것을 확인할 수 있고, 다음과 같이 ROS2 명령어를 사용할 수 있습니다.</p>
+</li>
+</ol>
+<p><code>zsh
+   ros@...:~$ rviz2</code></p>
+<p>참고로,</p>
+<ul>
+<li>기본 쉘은 <code>zsh</code>입니다. <a href="https://ohmyz.sh/">Oh My Zsh</a>이 설치되어 있으며, <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#agnoster">agnoster</a> 테마를 사용합니다. <code>bash</code>를 원하신다면, <a href="#8️⃣-쉘-변경은-어떻게-하나요">여기 적힌 방법</a>으로 얼마든지 바꿀 수 있습니다.</li>
+<li><a href="https://code.visualstudio.com/remote/advancedcontainers/use-docker-kubernetes#:~:text=Docker%2Dfrom%2DDocker%20%2D%20Also,but%20has%20bind%20mounting%20limitations.">DooD</a> 설정이 되어 있어서, Host의 Docker를 Dev Container 내에서도 동일하게 사용할 수 있습니다. 다만, rootless 모드가 설정되어 있지 않아서 <code>sudo</code>를 입력해야 합니다. 예를 들어, <code>sudo docker ps</code>를 입력하면, Dev Container 자기 자신이 나타납니다.</li>
+</ul>
+<h2 id="_3">📌 정보</h2>
+<h3 id="1">1️⃣ 유용한 기능들은 무엇이 있나요?</h3>
+<ul>
+<li>실제 Host PC를 사용하는 것과 거의 동일한 경험을 제공합니다.</li>
+<li><code>sudo</code> 명령을 사용할 수 있어서, <code>sudo apt install</code>로 패키지를 추가로 설치할 수 있습니다.</li>
+<li>Host의 Docker를 Dev Container 내부에서 사용할 수 있도록 <a href="https://code.visualstudio.com/remote/advancedcontainers/use-docker-kubernetes#:~:text=Docker%2Dfrom%2DDocker%20%2D%20Also,but%20has%20bind%20mounting%20limitations.">DooD (Docker-outside-of-Docker)</a> 설정이 되어 있습니다. 다만 <code>docker</code> 명령어를 사용하려면, <code>sudo</code>를 붙여야 합니다. (예: <code>sudo docker ps</code>)</li>
+<li>실제 센서들을 쉽게 사용할 수 있도록 <a href="components">components 폴더</a>에 Dockerfile이 미리 준비되어 있습니다.</li>
+<li>GUI 프로그램을 실행할 수 있습니다.</li>
+<li><code>tasks.json</code>에는 다양한 task들이 미리 설정되어 있습니다.</li>
+<li><code>Ctrl+Shift+P</code>를 눌러 <code>Tasks: Run Task</code>를 선택하고, 사용할 수 있는 task들을 확인해보세요.</li>
+<li>Tasks를 활용하는 멋진 방법은 <a href="https://www.allisonthackston.com/articles/vscode-tasks.html">원작자의 블로그</a>를 확인해주세요.</li>
+<li>기본 쉘로 <code>zsh</code>이 설정되어 있고, <a href="https://ohmyz.sh/">Oh My Zsh</a>의 유용한 플러그인들도 미리 설치되어 있습니다. 쉘을 <code>bash</code>로 되돌리고 싶다면 <a href="#8️⃣-쉘-변경은-어떻게-하나요">(8️) 쉘 변경은 어떻게 하나요?</a>를 읽어주세요.</li>
+<li>APT mirror 서버가 Kakao 서버로 설정되어 있어 국내에서 <code>apt update</code>와 <code>apt install</code>이 빠릅니다.</li>
+<li>ROS2에서 추천하는 formatter와 linter가 설정되어 있습니다. (<a href="https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html">ROS2 code style</a>)</li>
+<li>Github CI로 ROS2 linting이 설정되어 있습니다. <a href=".github/workflows/ros.yaml"><code>.github/workflows/ros.yaml</code></a> 파일을 참고하세요.</li>
+</ul>
+<h3 id="2-dev-container">2️⃣ Dev Container는 일반적인 컨테이너에 비해 어떤 장점이 있나요?</h3>
+<ul>
+<li>Dev Container를 사용하면, 컨테이너 환경뿐만 아니라 extension 같은 VSCode의 설정들도 일관되게 관리할 수 있습니다.</li>
+<li>공유할 수 있는 VSCode의 설정들에는 <code>tasks.json</code>, <code>launch.json</code>, <code>settings.json</code> 등도 포함됩니다.</li>
+<li>원격지 서버의 Dev Container도 쉽게 사용할 수 있으므로, 로컬 PC의 성능에 구애받지 않고 개발할 수 있습니다. (<a href="#원격으로-vscode를-사용할-때-유용한-팁이-있나요">참고가 될만한 팁</a>)</li>
+</ul>
+<h3 id="3">3️⃣ 배포용 도커 이미지는 어떻게 만들 수 있나요?</h3>
+<p>배포용 도커 이미지는 다음 도커파일을 참고하여 작성하시길 추천합니다.</p>
+<ul>
+<li><a href="https://github.com/athackst/dockerfiles/blob/main/ros2/humble.Dockerfile">athackst/humble.Dockerfile</a></li>
+<li><a href="https://github.com/athackst/dockerfiles/blob/main/ros2/humble-cuda.Dockerfile">athackst/humble-cuda.Dockerfile</a></li>
+</ul>
+<p>다양한 ROS2 도커 이미지 예시로는 <a href="https://github.com/DominikN/ros2_docker_examples">DominikN/ros2_docker_examples</a>가 좋은 참고 자료가 될 것입니다.</p>
+<p>만약, 컨테이너 내부의 시간을 호스트 시스템의 시간과 동일하게 맞추고 싶다면, 다음과 같이 volume을 마운트하면 됩니다.</p>
+<pre><code class="language-bash">--volume=/etc/timezone:/etc/timezone:ro \
+--volume=/etc/localtime:/etc/localtime:ro
+</code></pre>
+<h3 id="4-vscode">4️⃣ 원격으로 VSCode를 사용할 때 유용한 팁이 있나요?</h3>
+<ul>
+<li>원격지 서버에서 개발할 때 잦은 비밀번호 입력으로 불편하다면, <code>ssh-keygen &amp; ssh-copy-id</code>를 사용하여 비밀번호 없이 로그인할 수 있도록 설정하거나 <code>ssh-agent</code>를 사용하여 비밀번호를 한 번만 입력하도록 설정할 수 있습니다.</li>
+<li>원격으로 접속할 때도 X11 포워딩을 통해 GUI 창을 띄울 수 있습니다. 원격 서버가 Linux라면, VSCode에서 ssh 접속 시 <code>-X</code> 옵션을 주면 됩니다. 만약 <code>X11 connection rejected</code> 같은 오류가 발생한다면, <a href="https://unix.stackexchange.com/questions/162979/annoying-message-x11-connection-rejected-because-of-wrong-authentication-while">설정이 올바른지</a> 또는 <code>devcontainer.json</code>에서 <code>DISPLAY</code> 변수는 현재 환경에 적절한지 확인해주세요. 필요에 따라 서버에서 <code>$HOME/.Xauthority</code> 폴더를 지워야 할 수도 있습니다.</li>
+</ul>
+<p><code>sh
+   ssh user@host -X -A
+   # -X Enables X11 forwarding.
+   # -A Enable forwarding of the authentication agent connection. (ssh-agent)</code></p>
+<h3 id="5-settingsjson">5️⃣ 설정된 settings.json 중에서 알아두면 좋은 것들은 무엇이 있나요?</h3>
+<p>키보드 타이핑이 끝나고 1초 후에 자동으로 저장되도록 설정되어 있기 때문에, 저장 단축키를 누르지 않아도 자동으로 저장됩니다.
+또한, 파일 끝에 있는 빈 줄과 공백 문자들도 자동으로 제거되도록 설정되어 있습니다.</p>
+<pre><code class="language-json">&quot;files.autoSave&quot;: &quot;afterDelay&quot;,
+&quot;files.trimTrailingWhitespace&quot;: true,
+&quot;files.trimFinalNewlines&quot;: true,
+&quot;editor.formatOnType&quot;: false,
+</code></pre>
+<h3 id="6-devcontainerjson">6️⃣ 설정된 devcontainer.json 중에서 알아두면 좋은 것들은 무엇이 있나요?</h3>
+<ul>
+<li><code>runArgs</code> 항목에 주석 처리된 옵션들이 있습니다. 필요한 옵션이 있다면 주석을 해제하고 사용하시면 됩니다.</li>
+<li>사용할 도커 이미지를 변경하고 싶다면, <code>dockerFile</code> 항목을 수정하면 됩니다.</li>
+</ul>
+<p><code>json
+   {
+     "dockerFile": "humble_full.Dockerfile",
+     // "dockerFile": "humble_full_cuda.Dockerfile",
+   }</code></p>
+<ul>
+<li>Extension 중에서 GitHub 계정이 필요한 것들은 주석 처리되어 있습니다. 필요하다면 주석을 해제하고 사용하시면 됩니다. (GitHub Copilot과 GitHub Actions)</li>
+</ul>
+<p><code>json
+   "extensions": [
+     // // [Optional] These extensions require GitHub account authentication. Uncomment them to enable.
+     // "github.vscode-github-actions",
+     // "GitHub.copilot",
+   ]</code></p>
+<h3 id="7-docker-compose-devcontainer">7️⃣ Docker compose를 devcontainer로 사용하고 싶다면 어떻게 해야 하나요?</h3>
+<p>VSCode의 공식 문서에 <a href="https://code.visualstudio.com/docs/devcontainers/create-dev-container#_use-docker-compose">Docker compose를 devcontainer로 사용하는 방법</a>이 잘 설명되어 있습니다.</p>
+<h3 id="8">8️⃣ 쉘 변경은 어떻게 하나요?</h3>
+<ul>
+<li><code>bash</code>와 <code>zsh</code>을 자유롭게 사용할 수 있습니다. <code>bash</code>를 사용하고 싶다면, 터미널에서 <code>bash</code>를 입력하면 됩니다.</li>
+<li>기본 쉘을 바꾸고 싶다면, <a href=".devcontainer/devcontainer.json">devcontainer.json</a>에서 <code>"terminal.integrated.defaultProfile.linux"</code> 항목을 수정하면 됩니다.</li>
+</ul>
+<h2 id="_4">📹 실제 센서 연결</h2>
+<ul>
+<li><a href="components/azure_kinect/">Azure Kinect 컨테이너</a></li>
+<li><a href="components/realsense/">Intel RealSense 컨테이너</a></li>
+</ul>
+<h2 id="_5">✨ 기능 추가</h2>
+<p>새로운 기능에 대한 요청이나 추가는 issue나 pull request를 통해 환영합니다. 관리자가 주기적으로 확인하고 있으나, 답변은 늦을 수 있으니 양해 부탁드립니다.</p>
+<h2 id="_6">🔑 문제 해결</h2>
+<p><strong>Q.</strong> 센서가 인식되지 않습니다.</p>
+<ul>
+<li>컨테이너를 실행할 때 적절한 권한과 옵션을 부여하였는지 확인해주세요. <code>--privileged</code> 옵션이 필요할 수도 있습니다.</li>
+<li>연결선이 적절한 사양인지 확인해주세요. 실수로 데이터 선이 없는 케이블을 사용하고 있거나, 다른 작업 도중 연결선이 빠지지 않았는지 확인해주세요. <code>lsusb</code> 명령어로 연결된 USB 장치들을 확인할 수 있습니다.</li>
+<li>그럼에도 작동하지 않는다면, 다른 포트에 꽂아보세요. 노트북이나 데스트탑 PC에 USB 포트가 여러 개 있다면, 동일하게 USB 3.0이라고 적혀있더라도 실제 대역폭과 세부 스팩이 다른 포트가 섞여 있는 경우가 있습니다. 그렇기 때문에, 다른 포트에 꽂으면 문제가 해결될 수도 있습니다.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.78eede0e.min.js"></script>
+      
+    
+  </body>
+</html>
