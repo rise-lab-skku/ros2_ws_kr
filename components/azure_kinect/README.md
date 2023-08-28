@@ -32,7 +32,7 @@ cd components/azure_kinect
 sudo ./run.sh
 ```
 
-종종 다음과 같은 오류가 발생하지만, `./run.sh`를 다시 실행하면 정상적으로 실행됩니다.
+종종 다음과 같은 오류가 발생하지만, 터미널을 재시작한 후 `./run.sh`를 다시 실행하면 정상적으로 실행됩니다.
 
 ```bash
 [node-1] [WARN] [1693129030.159377940] [k4a_ros_device_node]: Initializing the device to realtime offset based on wall clock: 1693129029959326594 ns
