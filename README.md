@@ -25,6 +25,8 @@ If you find this template useful, please consider showing your support by giving
 4. [📹 실제 센서 연결](#-실제-센서-연결)
 5. [✨ 기능 추가](#-기능-추가)
 6. [🔑 문제 해결](#-문제-해결)
+   1. [Q. 센서가 인식되지 않습니다.](#q-센서가-인식되지-않습니다)
+   2. [Q. Windows에서 GUI 창이 뜨지 않습니다.](#q-windows에서-gui-창이-뜨지-않습니다)
 
 ---
 
@@ -58,8 +60,6 @@ If you find this template useful, please consider showing your support by giving
    ```bash
    sudo apt install chrony
    ```
-
-4. WSL2를 사용하는 경우, [원본 저장소의 WSL2](https://github.com/athackst/vscode_ros2_workspace#wsl2) 섹션을 참고해주세요.
 
 ## ✏️ 사용법
 
@@ -98,7 +98,7 @@ If you find this template useful, please consider showing your support by giving
    - 위의 과정을 거치면, 컨테이너가 빌드되고 VSCode가 재시작됩니다.
    - 최초 실행 시, Docker 이미지를 빌드하는 과정이 있어서 시간이 몇 분 정도 걸릴 수 있지만, 두 번째 실행부터는 빌드된 이미지가 있으므로 바로 실행됩니다.
 
-2. 올바로 실행되었다면, ``Ctrl+Shift+`(역따옴표)``로 터미널을 열여서 유저이름이 `ros`인 것을 확인할 수 있고, 다음과 같이 ROS2 명령어를 사용할 수 있습니다.
+2. 올바로 실행되었다면, ``Ctrl+Shift+`(역따옴표)``로 터미널을 열여서 유저이름이 `ros`인 것을 확인할 수 있고, 다음과 같이 ROS2 명령어를 사용할 수 있습니다. <span style="color:red">(단, Windows 환경이라면 Ubuntu와 달리 X11 포워딩을 수동으로 설정해야 GUI 창이 뜹니다. [설정 방법](#q-windows에서-gui-창이-뜨지-않습니다)을 참고바랍니다.)</span>
 
    ```zsh
    ros@...:~$ rviz2
@@ -213,8 +213,28 @@ VSCode의 공식 문서에 [Docker compose를 devcontainer로 사용하는 방�
 
 ## 🔑 문제 해결
 
-**Q.** 센서가 인식되지 않습니다.
+### Q. 센서가 인식되지 않습니다.
 
 - 컨테이너를 실행할 때 적절한 권한과 옵션을 부여하였는지 확인해주세요. `--privileged` 옵션이 필요할 수도 있습니다.
 - 연결선이 적절한 사양인지 확인해주세요. 실수로 데이터 선이 없는 케이블을 사용하고 있거나, 다른 작업 도중 연결선이 빠지지 않았는지 확인해주세요. `lsusb` 명령어로 연결된 USB 장치들을 확인할 수 있습니다.
 - 그럼에도 작동하지 않는다면, 다른 포트에 꽂아보세요. 노트북이나 데스트탑 PC에 USB 포트가 여러 개 있다면, 동일하게 USB 3.0이라고 적혀있더라도 실제 대역폭과 세부 스팩이 다른 포트가 섞여 있는 경우가 있습니다. 그렇기 때문에, 다른 포트에 꽂으면 문제가 해결될 수도 있습니다.
+
+### Q. Windows에서 GUI 창이 뜨지 않습니다.
+
+Windows에서는 X11 포워딩이 기본적으로 없기 때문에, [Xming](https://sourceforge.net/projects/xming/)이나 [MobaXterm](https://mobaxterm.mobatek.net/)과 같은 X11 서버를 설치해야 합니다. <span style="color:red">여기서는 설정이 간편한 MobaXterm을 사용하겠습니다.</span>
+
+1. MobaXterm을 설치합니다.
+2. Settings > Configuration > X11에서 `OpenGL acceleration`을 `Software`로 설정합니다. 설정 후에는 MobaXterm을 그냥 켜두면 됩니다. (이 설정을 하지 않으면, RViz2가 실행되지 않습니다.)
+
+   ![MobaXterm1](https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/88e13275-54d9-4983-90ae-aed200f978ce)
+   ![MobaXterm2](https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/612374ae-2269-4af1-b3a0-5bc8a56d5f9b)
+
+3. 윈도우에서 CMD 또는 PowerShell을 열고 `ipconfig`를 입력합니다. 여기서 WSL 항목에 적힌 IPv4 Address 주소를 확인합니다. 이 주소값 뒤에 `:0`를 붙여서, `.devcontainer` 폴더 > `devcontainer.json` 파일의 `DISPLAY` 항목에 입력합니다.
+
+   ![ipconfig](https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/777a7bf6-a086-411e-a087-349151a58557)
+   ![DISPLAY variable](https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/22e72644-69d6-4602-903c-643158ad4a44)
+   ![DISPLAY devcontainer](https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/926d6b0b-ed4b-4037-96c9-8074aa1c5c03)
+
+4. VSCode에서 `Ctrl+Shift+P` > `Dev Containers: Rebuild Container`를 선택합니다. 이제 RViz2 창이 뜨는 것을 확인할 수 있습니다.
+
+   ![RViz2 on Windows](https://github.com/rise-lab-skku/ros2_ws_kr/assets/19263912/5daeb6e0-830e-417a-be99-6d4017dc6b05)
