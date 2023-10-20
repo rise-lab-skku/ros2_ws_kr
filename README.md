@@ -63,15 +63,11 @@ If you find this template useful, please consider showing your support by giving
 
 ## ✏️ 사용법
 
-1. 원하는 workspace 이름으로 저장소를 내려받습니다. 다음 2가지 방법 중 하나를 선택하세요.
+1. 원하는 이름으로 workspace를 생성합시다. 다음 2가지 방법 중 하나를 선택하세요.
 
-   - **(방법 1)** 본 저장소를 바로 내려받고 git 연결을 끊는 방법. `$YOUR_WORKSPACE_NAME`는 원하는 workspace 이름으로 바꿔주세요.
-
-      ```bash
-      git clone https://github.com/rise-lab-skku/ros2_ws_kr.git $YOUR_WORKSPACE_NAME
-      cd $YOUR_WORKSPACE_NAME
-      git remote remove origin
-      ```
+   - **(방법 1)** Git 연결 없이 workspace 생성하는 방법. (가장 단순, 권장)
+      - [Release 페이지](https://github.com/rise-lab-skku/ros2_ws_kr/releases)의 Assets에서 source code 압축파일을 다운받는다.
+      - 압축을 풀면, `ros2_ws_kr-{버전}` 폴더가 생긴다. 이 폴더를 원하는 workspace 이름으로 고칩니다.
 
    - **(방법 2)** 본인의 private 저장소를 만들어서 workspace를 관리하는 방법. 이렇게 하면 `./src/` 폴더에 담을 ROS 패키지들을 [submodule](https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88)로 관리할 수 있습니다.
 
